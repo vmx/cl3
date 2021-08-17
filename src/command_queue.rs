@@ -962,6 +962,7 @@ pub fn enqueue_barrier_with_wait_list(
     }
 }
 
+#[cfg(feature = "CL_VERSION_2_0")]
 #[inline]
 pub fn enqueue_svm_free(
     command_queue: cl_command_queue,
@@ -999,6 +1000,7 @@ pub fn enqueue_svm_free(
     }
 }
 
+#[cfg(feature = "CL_VERSION_2_0")]
 #[inline]
 pub fn enqueue_svm_mem_cpy(
     command_queue: cl_command_queue,
@@ -1029,6 +1031,7 @@ pub fn enqueue_svm_mem_cpy(
     }
 }
 
+#[cfg(feature = "CL_VERSION_2_0")]
 #[inline]
 pub fn enqueue_svm_mem_fill(
     command_queue: cl_command_queue,
@@ -1059,6 +1062,7 @@ pub fn enqueue_svm_mem_fill(
     }
 }
 
+#[cfg(feature = "CL_VERSION_2_0")]
 #[inline]
 pub fn enqueue_svm_map(
     command_queue: cl_command_queue,
@@ -1089,6 +1093,7 @@ pub fn enqueue_svm_map(
     }
 }
 
+#[cfg(feature = "CL_VERSION_2_0")]
 #[inline]
 pub fn enqueue_svm_unmap(
     command_queue: cl_command_queue,

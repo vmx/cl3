@@ -189,6 +189,7 @@ pub fn set_kernel_arg(
 /// * `arg_ptr` - the SVM pointer to the data for the argument at arg_index.
 ///
 /// returns an empty Result or the error code from the OpenCL C API function.
+#[cfg(feature = "CL_VERSION_2_0")]
 #[inline]
 pub fn set_kernel_arg_svm_pointer(
     kernel: cl_kernel,

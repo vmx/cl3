@@ -223,6 +223,7 @@ pub fn create_image(
 ///
 /// returns a Result containing the new OpenCL pipe object
 /// or the error code from the OpenCL C API function.
+#[cfg(feature = "CL_VERSION_2_0")]
 #[inline]
 pub fn create_pipe(
     context: cl_context,
@@ -567,6 +568,7 @@ pub fn get_image_info(image: cl_mem, param_name: ImageInfo) -> Result<InfoType, 
 
 /// Get data about an OpenCL pipe object.
 /// Calls clGetPipeInfo to get the desired data about the pipe object.
+#[cfg(feature = "CL_VERSION_2_0")]
 pub fn get_pipe_data(
     pipe: cl_mem,
     param_name: cl_pipe_info,
@@ -578,6 +580,7 @@ pub fn get_pipe_data(
 }
 
 // cl_pipe_info
+#[cfg(feature = "CL_VERSION_2_0")]
 #[derive(Clone, Copy, Debug)]
 pub enum PipeInfo {
     // CL_VERSION_2_0
@@ -597,6 +600,7 @@ pub enum PipeInfo {
 ///
 /// returns a Result containing the desired information in an InfoType enum
 /// or the error code from the OpenCL C API function.
+#[cfg(feature = "CL_VERSION_2_0")]
 pub fn get_pipe_info(pipe: cl_mem, param_name: PipeInfo) -> Result<InfoType, cl_int> {
     let param_id = param_name as cl_pipe_info;
     match param_name {
@@ -652,6 +656,7 @@ pub fn set_mem_object_destructor_callback(
 ///
 /// returns Result containing the address of the SVM buffer
 /// or the error code: CL_INVALID_VALUE if the address is NULL.
+#[cfg(feature = "CL_VERSION_2_0")]
 #[inline]
 pub fn svm_alloc(
     context: cl_context,
@@ -673,6 +678,7 @@ pub fn svm_alloc(
 ///
 /// * `context` - the valid OpenCL context used to create the SVM buffer.
 /// * `svm_pointer` - the value returned by a call to clSVMAlloc.
+#[cfg(feature = "CL_VERSION_2_0")]
 #[inline]
 pub fn svm_free(context: cl_context, svm_pointer: *mut c_void) {
     unsafe { clSVMFree(context, svm_pointer) };
